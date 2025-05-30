@@ -28,6 +28,34 @@ A RESTful Spring Boot API which generates **unique, regex compliant, and scalabl
 
 ---
 
+
+
+
+1. Clone the repository
+https://github.com/hashmicode/track-api.git
+cd track-api
+
+2. Build
+./mvnw clean package
+
+This will create a runnable JAR file under the target/ folder:
+
+target/track-api-0.0.1-SNAPSHOT.jar
+
+3. Run the app
+
+java -jar target/track-api-0.0.1-SNAPSHOT.jar
+
+If successful:
+
+Tomcat started on port(s): 8080
+
+4. Testing the API locally 
+
+Open  browser or use Postman:
+
+http://localhost:8080/api/next-tracking-number?origin_country_id=MY&destination_country_id=ID&weight=1.234&created_at=2025-05-30T10:30:00%2B08:00&customer_id=de619854-b59b-425e-9db4-943979e1bd49&customer_name=RedBox%20Logistics&customer_slug=redbox-logistics
+
 ## Response
 
 ```json
@@ -35,5 +63,4 @@ A RESTful Spring Boot API which generates **unique, regex compliant, and scalabl
   "tracking_number": "MYIDRED1672350D",
   "created_at": "2025-05-30T08:30:00Z"
 }
-
-1. Clone the Repository
+```
