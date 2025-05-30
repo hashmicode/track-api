@@ -33,9 +33,10 @@ A RESTful Spring Boot API which generates **unique, regex compliant, and scalabl
 
 1. Clone the repository
 https://github.com/hashmicode/track-api.git
+
 cd track-api
 
-2. Build
+3. Build
 ./mvnw clean package
 
 This will create a runnable JAR file under the target/ folder:
