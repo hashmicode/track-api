@@ -9,3 +9,12 @@ automatic_scaling:
 
 env_variables:
   LOG_LEVEL: INFO
+  MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "*"
+  MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS: "always"
+  MANAGEMENT_TRACING_ENABLED: "true"
+  MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: "http://zipkin:9411/api/v2/spans"
+  SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411/"
+  SPRING_SLEUTH_SAMPLER_PROBABILITY: "1.0"
+
+network:
+  session_affinity: false

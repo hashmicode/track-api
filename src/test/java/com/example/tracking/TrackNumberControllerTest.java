@@ -14,6 +14,11 @@ import java.util.UUID;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
+/**
+ * unit tests for the TrackNumberController.
+ * focus on endpoint validation, HTTP status codes, and correct interaction with the service layer.
+ */
+
 @WebMvcTest(TrackNumberController.class)
 public class TrackNumberControllerTest {
 
@@ -23,6 +28,9 @@ public class TrackNumberControllerTest {
     @MockBean
     private TrackNumberService trackNumberService;
 
+    /**
+     * Test a valid request and expect HTTP 200 OK and correct JSON structure.
+     */
     @Test
     void shouldReturn200ForValidRequest() throws Exception {
         Mockito.when(trackNumberService.generateTrackNumber(
@@ -43,6 +51,10 @@ public class TrackNumberControllerTest {
                 .andExpect(jsonPath("$.tracking_number").value("ABCD1234EFGH5678"));
     }
 
+    /**
+     * Test invalid origin country code (more than 2 characters).
+     */
+
     @Test
     void shouldReturn400ForInvalidCountryCode() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/next-tracking-number")
@@ -56,6 +68,9 @@ public class TrackNumberControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
+    /**
+     * Test invalid weight (negative value).
+     */
     @Test
     void shouldReturn400ForInvalidWeight() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/next-tracking-number")
@@ -69,6 +84,9 @@ public class TrackNumberControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
+    /**
+     * Test invalid customer slug (bad characters).
+     */
     @Test
     void shouldReturn400ForInvalidSlug() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/next-tracking-number")
@@ -82,6 +100,9 @@ public class TrackNumberControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
+    /**
+     * Test invalid timestamp (malformed string).
+     */
     @Test
     void shouldReturn400ForInvalidTimestamp() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/next-tracking-number")

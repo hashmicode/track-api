@@ -9,6 +9,11 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * unit tests for the TrackNumberService.
+ * verify tracking number generation logic, format, uniqueness, and constraints.
+ */
+
 public class TrackNumberServiceTest {
 
     private TrackNumberService service;
@@ -17,6 +22,10 @@ public class TrackNumberServiceTest {
     void setUp() {
         service = new TrackNumberService();
     }
+
+    /**
+     * to make sure that the generated tracking number is not null and matches the expected alphanumeric format.
+     */
 
     @Test
     void shouldGenerateValidTrackingNumber() {
@@ -29,6 +38,11 @@ public class TrackNumberServiceTest {
         assertNotNull(trackingNumber);
         assertTrue(trackingNumber.matches("^[A-Z0-9]{1,16}$"), "Tracking number format invalid");
     }
+
+    /**
+     * to make sure that tracking numbers are unique across multiple calls.
+     * Verifies collision resistance logic works correctly.
+     */
 
     @Test
     void shouldGenerateUniqueTrackingNumbers() {
@@ -46,6 +60,12 @@ public class TrackNumberServiceTest {
 
         assertNotEquals(tn1, tn2, "Tracking numbers should be unique");
     }
+
+
+    /**
+     * to make sure that the generated tracking number length never exceeds 16 characters.
+     * This is important for downstream system constraints or barcode limitations.
+     */
 
     @Test
     void shouldNotExceedMaxLength() {
