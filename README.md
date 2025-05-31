@@ -28,24 +28,26 @@ A RESTful Spring Boot API which generates **unique, regex compliant, and scalabl
 
 ---
 
-## 🔗 Deployed API
+##  Deployed API
 
  [Live URL](https://track-api-461423.ew.r.appspot.com/api/next-tracking-number)
  https://track-api-461423.ew.r.appspot.com/api/next-tracking-number?origin_country_id=MY&destination_country_id=ID&weight=1.234&created_at=2025-05-30T10:30:00%2B08:00&customer_id=de619854-b59b-425e-9db4-943979e1bd49&customer_name=RedBox%20Logistics&customer_slug=redbox-logistics
 
-**To run locally**
+## To run locally
 
-1. **Prerequisites**
-   Java 17+ , Maven 3.8+ , Google Cloud SDK (for deployment)
+1. **Prerequisites**\
+   Java 17+  \
+   Maven 3.8+ \
+   Google Cloud SDK (for deployment)
 
 2. **Clone and run**
-   https://github.com/hashmicode/track-api.git
-   cd track-api
-   ./mvnw clean install
-   ./mvnw spring-boot:run
+   https://github.com/hashmicode/track-api.git  \
+   `cd track-api`\
+   `./mvnw clean install`\
+   `./mvnw spring-boot:run`
 
-3. **Running Tests**
-   ./mvnw clean test
+3. **Running Tests** \
+   `./mvnw clean test`
 
 
 4. **Testing the API locally**
@@ -67,13 +69,13 @@ http://localhost:8080/api/next-tracking-number?origin_country_id=MY&destination_
 }
 ```
 
-Deploying on Google App Engine
+## Deploying on Google App Engine
 
-1. **Authenticate with Google Cloud CLI:**
-    gcloud init
-2. **Set project & region:**
-   gcloud config set project track-api-461423
-   gcloud app create --region=asia-southeast1
-3. **Deploy:**
-   gcloud app deploy
+1. [x] **Authenticate with Google Cloud CLI:**
+    `gcloud init`
+2. [x] **Set project & region:**\
+   `gcloud config set project track-api-461423`\
+   `gcloud app create --region=asia-southeast1`
+3. [x] **Deploy:**\
+   `gcloud app deploy`
 
