@@ -30,7 +30,9 @@ A RESTful Spring Boot API which generates **unique, regex compliant, and scalabl
 
 ##  Deployed API
 
- [Live URL](https://track-api-461423.ew.r.appspot.com/api/next-tracking-number)
+ [Live URL] \
+ (https://track-api-461423.ew.r.appspot.com/api/next-tracking-number)\
+ \
  https://track-api-461423.ew.r.appspot.com/api/next-tracking-number?origin_country_id=MY&destination_country_id=ID&weight=1.234&created_at=2025-05-30T10:30:00%2B08:00&customer_id=de619854-b59b-425e-9db4-943979e1bd49&customer_name=RedBox%20Logistics&customer_slug=redbox-logistics
 
 ## To run locally
@@ -41,7 +43,7 @@ A RESTful Spring Boot API which generates **unique, regex compliant, and scalabl
    Google Cloud SDK (for deployment)
 
 2. **Clone and run**
-   https://github.com/hashmicode/track-api.git  \
+   `git clone https://github.com/hashmicode/track-api.git`  \
    `cd track-api`\
    `./mvnw clean install`\
    `./mvnw spring-boot:run`
